@@ -1,0 +1,24 @@
+{
+  "name": "my-fft",
+  "description": "Samoa Clien Side",
+  "main": "server/server.js",
+  "authors": [
+    "Thingtrack"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "^1.1.18",
+    "angular-resource": "^1.7.8",
+    "angular-ui-router": "^1.0.22",
+    "angular-dygraphs": "^1.1.6",
+    "angular-sanitize": "^1.7.8",
+    "jquery": "^3.3.1"
+  }
+}

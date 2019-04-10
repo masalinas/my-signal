@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="fftApp">
+    <head>
+        <meta charset="UTF-8">
+        <title>Signal POC</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Fonts set application style sheet: Roboto fonts set -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+
+        <!-- Icons set application style sheet: Material icons set -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+        <!-- Vendor style sheets -->
+        <link type="text/css" rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+        <link type="text/css" rel="stylesheet" href="/scripts/dygraph.min.css">
+
+        <!-- Application style sheets -->
+        <link type="text/css" rel="stylesheet" href="styles/index.css">
+    </head>
+    <body layout="column" ng-controller="fftController" layout-fill ng-cloak>
+        <button ng-click="initSignal()">Start</button>
+        <button ng-click="gradient()">Perform Gradient</button>
+        <button ng-click="integration()">Perform Integration</button>
+        <button ng-click="fft()">Perform FFT</button>
+
+        <div flex>
+            <ng-dygraphs style="height: 500px;"
+                        data="graph.data"
+                        options="graph.options">
+            </ng-dygraphs>
+        </div>
+
+        <!-- Vendor javascript packages -->
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-aria/angular-aria.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-messages/angular-messages.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-material/angular-material.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-resource/angular-resource.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+        <script type="text/javascript" src="/scripts/dygraph.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-dygraphs/src/angular-dygraphs.js"></script>
+
+        <!-- Application services packages  -->
+        <script src="app/js/lb-services.js"></script>
+
+        <!-- Application javascript packages  -->
+        <script src="app/js/index.js"></script>
+    </body>
+</html>
