@@ -18,7 +18,23 @@ app.controller('fftController', ['$scope', 'Signal', function($scope, Signal) {
     };
 
     function initSignal() {
-        $scope.x = [];
+        Signal.eventmoc()
+            .$promise
+            .then(function(result, responseHeaders) {
+                plotEventMoc(result.t, result.x);
+            },
+            function(httpResponse) {
+                var error;
+
+                if (httpResponse.error == undefined)
+                    error = httpResponse.data.error
+                else
+                    error = httpResponse.error
+                
+                console.log('Error gradient - ' + error.status + ": " + error.message);
+            });
+
+        /*$scope.x = [];
         $scope.y = [];
 
         for (i = 0 ; i<$scope.buf; i++) {
@@ -26,7 +42,7 @@ app.controller('fftController', ['$scope', 'Signal', function($scope, Signal) {
             $scope.y.push(3*Math.cos(Math.PI * 2 * i / $scope.sam * $scope.fre*2.7) + Math.sin(Math.PI * 2 * i / $scope.sam * $scope.fre));
         }
 
-        plot($scope.y);
+        plot($scope.y);*/
     }
 
     function gradient() {
@@ -93,6 +109,15 @@ app.controller('fftController', ['$scope', 'Signal', function($scope, Signal) {
         for (var j = 0; j < plotData.length; j++) {
             $scope.graph.data.push([j, plotData[j]]);
         }
+    }
+
+    // plot Event Moc
+    function plotEventMoc(t, x) {
+        $scope.graph.data = [];
+
+        for (var j = 0; j < t.length; j++) {
+            $scope.graph.data.push([t[j], x[j]]);
+        }    
     }
 
     // plot FFT signal

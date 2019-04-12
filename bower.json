@@ -1,5 +1,5 @@
 {
-  "name": "my-fft",
+  "name": "my-signal",
   "description": "Samoa Clien Side",
   "main": "server/server.js",
   "authors": [
