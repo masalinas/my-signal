@@ -9,11 +9,20 @@ app.controller('fftController', ['$scope', 'Signal', function($scope, Signal) {
     $scope.buf = 1024;
 
     // default graph configuration
-    $scope.graph = {
-        data: [
+    /*$scope.graph = {
+        data: [[0, 0]
         ],
         options: {
-            showPopover: false            
+            showPopover: false,
+            valueRange: [-0.005, 0.005]            
+        }
+    };*/
+
+    $scope.graph = {
+        data: [[0, 0]
+        ],
+        options: {
+            showPopover: false
         }
     };
 
@@ -21,6 +30,9 @@ app.controller('fftController', ['$scope', 'Signal', function($scope, Signal) {
         Signal.eventmoc()
             .$promise
             .then(function(result, responseHeaders) {
+                $scope.x = result.t;
+                $scope.y = result.x;
+
                 plotEventMoc(result.t, result.x);
             },
             function(httpResponse) {
